@@ -149,8 +149,7 @@ class _ProposalDropdown extends StatelessWidget {
   }
 }
 
-// ------------------- CANDIDATE CARD  -------------------
-
+ 
 class CandidateCardModern extends StatefulWidget {
   final CandidatoModel candidato;
   final PropuestaModel propuesta;
@@ -187,8 +186,7 @@ class _CandidateCardModernState extends State<CandidateCardModern> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Nombre del candidato
-            Text(
+             Text(
               widget.candidato.nombreCandidato,
               style: const TextStyle(
                   fontSize: 22,
@@ -236,7 +234,7 @@ class _CandidateCardModernState extends State<CandidateCardModern> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Título y categoría
+                    // Titulo y categoria
                     Row(
                       children: [
                         Container(
@@ -273,7 +271,7 @@ class _CandidateCardModernState extends State<CandidateCardModern> {
 
                     const SizedBox(height: 8),
 
-                    // Descripción expandible
+                    // Descripcion
                     Text(
                       widget.propuesta.descripcion,
                       style:
@@ -282,8 +280,7 @@ class _CandidateCardModernState extends State<CandidateCardModern> {
                       overflow: TextOverflow.ellipsis,
                     ),
 
-                    // Indicador de expandir/colapsar
-                    Align(
+                     Align(
                       alignment: Alignment.centerRight,
                       child: Icon(
                         _expanded

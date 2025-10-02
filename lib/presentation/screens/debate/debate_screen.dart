@@ -17,8 +17,7 @@ class _DebateScreenState extends ConsumerState<DebateScreen> {
   final TextEditingController _searchController = TextEditingController();
   String _searchText = '';
 
-  // Variables para filtro por categoría
-  String _selectedCategory = 'Todos';
+   String _selectedCategory = 'Todos';
   final List<String> _categories = [
     'Todos',
     'Política',
@@ -101,7 +100,7 @@ class _DebateScreenState extends ConsumerState<DebateScreen> {
               ),
             ),
           ),
-          // Dropdown de categoría
+          // Dropdown de categoria
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: DropdownButtonFormField<String>(
@@ -127,8 +126,7 @@ class _DebateScreenState extends ConsumerState<DebateScreen> {
               },
             ),
           ),
-          // Lista de debates
-          Expanded(
+           Expanded(
             child: debatesAsync.when(
               data: (debates) {
                 final filteredDebates = debates.where((debate) {

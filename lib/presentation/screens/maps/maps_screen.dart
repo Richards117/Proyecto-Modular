@@ -80,8 +80,7 @@ class MapaEntidadesPageState extends ConsumerState<MapaEntidadesPage> {
                           message: entidad.nombre,
                           child: GestureDetector(
                             onTap: () async {
-                              // Filtra por entidad y tipo de elección
-                              final candidatos =
+                               final candidatos =
                                   await obtenerCandidatosPorEntidad(
                                       entidad.nombre, tipoSeleccionado);
 
@@ -164,113 +163,4 @@ class MapaEntidadesPageState extends ConsumerState<MapaEntidadesPage> {
   }
 }
 
-/*
-🗳️ FUNCIONES POLÍTICO-ELECTORALES ÚTILES
-🧭 1. Guía del Votante
-Muestra qué cargos se eligen en tu zona.
-
-Explica qué hace cada cargo (presidente, diputado, alcalde).
-
-Paso a paso de cómo votar.
-
-Ideal para usuarios jóvenes o primeros votantes.
-
-🧾 2. Verificador de Candidatos
-Que el usuario pueda escanear un volante, foto o QR de un candidato y ver si es real.
-
-Usa reconocimiento de texto (OCR) y base de datos de candidatos.
-
-Aplica visión artificial (💡 Módulo 4) y combate la desinformación.
-
-🧠 3. Simulador de Voto
-Una urna virtual donde el usuario puede “ensayar” su voto.
-
-Puede usarse para estadísticas anónimas del voto popular dentro de la app.
-
-📊 4. Comparador de Candidatos
-Seleccionas dos candidatos y ves:
-
-Propuestas por tema.
-
-Estudios o experiencia.
-
-Opiniones de usuarios.
-
-Como un “versus” político estilo comparador de productos.
-
-🧠 FUNCIONES INTELIGENTES / IA
-🧵 5. Análisis de Opinión
-Analiza los comentarios de los usuarios sobre cada candidato.
-
-Muestra si la opinión general es positiva, negativa o neutral.
-
-IA + minería de datos (💡 Módulo 4).
-
-🧠 6. Resumen automático de propuestas
-Algoritmo que toma textos largos y genera un resumen claro.
-
-Usa servicios como OpenAI o IA local simple.
-
-🧠 7. Recomendación de noticias
-Al ver el comportamiento del usuario (a quién ve, qué temas responde en encuestas), le sugiere noticias relacionadas.
-
-Recomendador basado en hábitos (💡 Módulo 4).
-
-📍 FUNCIONES GEOLOCALIZADAS
-📍 8. Ubicación de Casillas Electorales
-Muestra en el mapa los lugares donde se puede votar.
-
-Opción para simular búsqueda por calle o colonia.
-
-🚨 9. Alertas de eventos o incidentes
-“Hoy hay cierre de vialidades por marcha en el centro.”
-
-“Este candidato canceló evento por lluvia.”
-
-Se pueden enviar como push o banners en app.
-
-👤 FUNCIONES SOCIALES
-💬 10. Foro por estado o municipio
-Usuarios pueden abrir hilos de discusión: “¿Qué opinan de X propuesta?”
-
-Se pueden votar los comentarios o responder en hilo.
-
-📣 11. Sistema de denuncias
-Si un usuario ve contenido ofensivo o fake, puede denunciarlo.
-
-Admin lo revisa desde el panel.
-
-📚 EDUCATIVAS Y DE CONTENIDO
-📖 12. Historia Electoral
-Línea de tiempo interactiva con hechos clave de elecciones pasadas.
-
-Frases célebres de políticos, datos curiosos.
-
-🧠 13. Trivia o Quiz Electoral
-Mini juegos para aprender sobre democracia y derechos políticos.
-
-Pueden ser preguntas tipo “Kahoot” o simple múltiple opción.
-
-🧩 FUNCIONES DE PERSONALIZACIÓN
-🎨 14. Modo temático
-Cambia colores o diseño según el partido o candidato favorito del usuario.
-
-Cambios estéticos, sin sesgo.
-
-🛠️ 15. Perfil de usuario ampliado
-Guarda historial de encuestas respondidas, candidatos vistos, noticias leídas.
-
-Puede mostrar “Tu resumen electoral”.
-
-🚀 FUNCIONES "WOW" PARA TU PRESENTACIÓN
-📊 16. Dashboard de analítica en vivo (para admin)
-Ver tráfico en tiempo real, zonas más activas, resultados de test recomendador.
-
-Puede ser una app web complementaria o integrada con Flutter Web.
-
-🤖 17. Bot con voz (opcional avanzado)
-Usa Text-to-Speech (TTS) y Speech-to-Text (STT) para que la app te lea noticias o propuestas.
-
-Ideal para accesibilidad.
-
-*/
+ 

@@ -20,7 +20,7 @@ class Cosutmdebat extends ConsumerStatefulWidget {
 class _CosutmdebatState extends ConsumerState<Cosutmdebat> {
   final TextEditingController _comentarioController = TextEditingController();
 
-  late ComentarioNotifier _comentarioNotifier; // 👈 guardamos el notifier aquí
+  late ComentarioNotifier _comentarioNotifier; 
 
   final currentUserProvider = Provider<User?>((ref) {
     final authRepository = ref.watch(authRepositoryProvider);
@@ -33,23 +33,20 @@ class _CosutmdebatState extends ConsumerState<Cosutmdebat> {
     Future.microtask(() {
       _comentarioNotifier = ref.read(comentarioProvider.notifier);
 
-      // Cargar comentarios iniciales
-      _comentarioNotifier.cargarComentarios(widget.debate.id.toString());
+       _comentarioNotifier.cargarComentarios(widget.debate.id.toString());
 
-      // Activar la escucha en tiempo real
-      _comentarioNotifier.escucharComentarios(widget.debate.id.toString());
+       _comentarioNotifier.escucharComentarios(widget.debate.id.toString());
     });
   }
 
   @override
   void dispose() {
     _comentarioController.dispose();
-    _comentarioNotifier.cancelarSuscripcion(); // 👈 ya no usamos ref
+    _comentarioNotifier.cancelarSuscripcion();  
     super.dispose();
   }
 
-  /// Dialogo para editar comentario
-  void _mostrarDialogoEdicion(Comentario comentario) {
+   void _mostrarDialogoEdicion(Comentario comentario) {
     final TextEditingController editarController =
         TextEditingController(text: comentario.contenido);
 
@@ -117,8 +114,7 @@ class _CosutmdebatState extends ConsumerState<Cosutmdebat> {
     );
   }
 
-  /// Dialogo para responder un comentario
-  void _mostrarDialogoRespuesta(Comentario padre, String autor) {
+   void _mostrarDialogoRespuesta(Comentario padre, String autor) {
     final TextEditingController respuestaController = TextEditingController();
 
     showDialog(
@@ -171,8 +167,7 @@ class _CosutmdebatState extends ConsumerState<Cosutmdebat> {
     );
   }
 
-  /// Mostrar comentario + respuestas
-  Widget buildComentarioConRespuestas(
+   Widget buildComentarioConRespuestas(
       Comentario c, Map<int, Comentario> comentariosMap, String displayName) {
     final respuestas =
         comentariosMap.values.where((r) => r.parentId == c.id).toList();

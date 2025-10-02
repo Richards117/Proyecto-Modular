@@ -11,8 +11,7 @@ class CandidatoScreen extends StatefulWidget {
 }
 
 class CandidatoScreenState extends State<CandidatoScreen> {
-  // Toggle individual para cada sección
-  bool mostrarCorreo = false;
+   bool mostrarCorreo = false;
   final Map<int, bool> mostrarBiografia = {};
   final Map<int, bool> mostrarTrayectoria = {};
   final Map<int, bool> mostrarPropuestas = {};
@@ -232,8 +231,7 @@ class CandidatoScreenState extends State<CandidatoScreen> {
   }
 
   Widget _buildPropuestasCard() {
-    // Filtrar propuestas por título único
-    final titulosVistos = <String>{};
+     final titulosVistos = <String>{};
     final propuestasFiltradas = widget.candidato.propuestas.where((p) {
       if (titulosVistos.contains(p.titulo)) return false;
       titulosVistos.add(p.titulo);
@@ -268,8 +266,7 @@ class CandidatoScreenState extends State<CandidatoScreen> {
     );
   }
 
-  // =================== AUXILIARES ===================
-
+ 
   Widget _buildSectionCard({
     required String title,
     required List<Color> gradientColors,

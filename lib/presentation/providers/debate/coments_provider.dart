@@ -6,33 +6,28 @@ import 'package:flutter_application_votacion/domian/repositories/coments.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// 🔹 Supabase Client Provider
-final supabaseClientProvider = Provider<SupabaseClient>((ref) {
+ final supabaseClientProvider = Provider<SupabaseClient>((ref) {
   return Supabase.instance.client;
 });
 
-/// 🔹 Remote Data Source Provider
-final comentariosRemoteDataSourceProvider =
+ final comentariosRemoteDataSourceProvider =
     Provider<ComentariosRemoteDataSource>((ref) {
   final client = ref.read(supabaseClientProvider);
   return ComentariosRemoteDataSource(client);
 });
 
-/// 🔹 Repository Provider
-final comentarioRepositoryProvider = Provider<ComentarioRepository>((ref) {
+ final comentarioRepositoryProvider = Provider<ComentarioRepository>((ref) {
   final remoteDataSource = ref.read(comentariosRemoteDataSourceProvider);
   return ComentarioRepositoryImpl(remoteDataSource);
 });
 
-/// 🔹 ComentarioNotifier con Realtime
-class ComentarioNotifier extends StateNotifier<AsyncValue<List<Comentario>>> {
+ class ComentarioNotifier extends StateNotifier<AsyncValue<List<Comentario>>> {
   final ComentarioRepository repository;
   StreamSubscription<Comentario>? _comentariosSubscription;
 
   ComentarioNotifier(this.repository) : super(const AsyncValue.loading());
 
-  /// Cargar comentarios manualmente
-  Future<void> cargarComentarios(String debateId) async {
+   Future<void> cargarComentarios(String debateId) async {
     try {
       state = const AsyncValue.loading();
       final comentarios = await repository.getComentarios(debateId);
@@ -67,8 +62,7 @@ class ComentarioNotifier extends StateNotifier<AsyncValue<List<Comentario>>> {
     } catch (e) {}
   }
 
-  /// 🔹 Suscripción Realtime
-  void escucharComentarios(String debateId) {
+   void escucharComentarios(String debateId) {
     _comentariosSubscription?.cancel();
 
     _comentariosSubscription =
@@ -88,8 +82,7 @@ class ComentarioNotifier extends StateNotifier<AsyncValue<List<Comentario>>> {
     });
   }
 
-  /// 🔹 Cancelar suscripción Realtime
-  void cancelarSuscripcion() {
+   void cancelarSuscripcion() {
     _comentariosSubscription?.cancel();
     _comentariosSubscription = null;
   }
@@ -101,8 +94,7 @@ class ComentarioNotifier extends StateNotifier<AsyncValue<List<Comentario>>> {
   }
 }
 
-/// 🔹 StateNotifierProvider para UI
-final comentarioProvider =
+ final comentarioProvider =
     StateNotifierProvider<ComentarioNotifier, AsyncValue<List<Comentario>>>(
   (ref) {
     final repo = ref.read(comentarioRepositoryProvider);

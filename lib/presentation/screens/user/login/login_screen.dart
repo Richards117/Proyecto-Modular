@@ -179,7 +179,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         ),
                         const SizedBox(height: 15),
 
-                        // Botón login
+                        // Boton login
                         AnimatedScale(
                           scale: authState.loading ? 0.97 : 1.0,
                           duration: const Duration(milliseconds: 100),

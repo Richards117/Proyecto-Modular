@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Modelo simple para preguntas y respuestas
-class FAQ {
+ class FAQ {
   final String question;
   final String answer;
 

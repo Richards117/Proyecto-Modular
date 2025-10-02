@@ -20,15 +20,14 @@ class _PerfilUsuarioScreenState extends ConsumerState<PerfilUsuarioScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSavedSelections(); // Cargar valores guardados al iniciar
+    _loadSavedSelections();  
   }
 
   Future<void> _loadSavedSelections() async {
     final prefs = await SharedPreferences.getInstance();
     final notifier = ref.read(votacionNotifierProvider.notifier);
 
-    // Cargar todas las selecciones guardadas
-    notifier.setSelectedGenero(prefs.getString('selectedGenero'));
+     notifier.setSelectedGenero(prefs.getString('selectedGenero'));
     notifier.setSelectedEdad(prefs.getString('selectedEdad'));
     notifier.setSelectedEducacion(prefs.getString('selectedEducacion'));
     notifier.setSelectedOcupacion(prefs.getString('selectedOcupacion'));
@@ -40,8 +39,7 @@ class _PerfilUsuarioScreenState extends ConsumerState<PerfilUsuarioScreen> {
     notifier
         .setSelectedEntidadUsuario(prefs.getString('selectedEntidadUsuario'));
 
-    // Cargar datos iniciales si están vacíos
-    final state = ref.read(votacionNotifierProvider);
+     final state = ref.read(votacionNotifierProvider);
     if (state.entidadesUsuario.isEmpty ||
         state.cargos.isEmpty ||
         state.partidosFiltrados.isEmpty) {

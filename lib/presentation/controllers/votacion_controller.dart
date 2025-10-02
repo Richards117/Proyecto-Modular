@@ -7,8 +7,7 @@ class VotacionNotifier extends ChangeNotifier {
 
   VotacionNotifier({required this.supabaseService});
 
-  // ----------------- Selecciones -----------------
-  String? selectedGenero;
+   String? selectedGenero;
   String? selectedEntidadUsuario;
   String? selectedEntidadCandidato;
   String? selectedPartido;
@@ -26,23 +25,19 @@ class VotacionNotifier extends ChangeNotifier {
   String? frecuenciaVoto;
   String? fuenteInformacion;
 
-  // ----------------- Listas de datos -----------------
-  List<String> entidadesUsuario = [];
+   List<String> entidadesUsuario = [];
   List<String> entidadesCandidato = [];
   List<String> cargos = [];
 
-  // Listas filtradas para los dropdowns dependientes
-  List<String> entidadesFiltradasPorCargo = [];
+   List<String> entidadesFiltradasPorCargo = [];
   List<String> partidosFiltrados = [];
   List<String> candidatosFiltrados = [];
 
-  // ----------------- Estado -----------------
-  bool yaVotoPorCargo = false;
+   bool yaVotoPorCargo = false;
   bool loadingCandidatos = false;
   bool bloqueadoDatosPersonales = false;
 
-  // ----------------- Inicialización -----------------
-  Future<void> loadInitialData() async {
+   Future<void> loadInitialData() async {
     final entidades = await supabaseService.fetchEntidades();
     final cargosData = await supabaseService.fetchCargos();
 
@@ -53,8 +48,7 @@ class VotacionNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ----------------- Setters -----------------
-  void setSelectedGenero(String? val) {
+   void setSelectedGenero(String? val) {
     if (bloqueadoDatosPersonales) return;
     selectedGenero = val;
     notifyListeners();
@@ -163,8 +157,7 @@ class VotacionNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ----------------- Carga de datos filtrados -----------------
-  Future<void> loadPartidosFiltrados() async {
+   Future<void> loadPartidosFiltrados() async {
     if (selectedCargo == null || selectedEntidadCandidato == null) return;
     partidosFiltrados = await supabaseService.fetchPartidosFiltrados(
         entidad: selectedEntidadCandidato!, cargo: selectedCargo!);
@@ -189,8 +182,7 @@ class VotacionNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ----------------- Validaciones -----------------
-  Future<void> checkSiYaVotoPorCargo() async {
+   Future<void> checkSiYaVotoPorCargo() async {
     final userId = Supabase.instance.client.auth.currentUser?.id;
     if (userId != null && selectedCargo != null) {
       yaVotoPorCargo =
@@ -199,8 +191,7 @@ class VotacionNotifier extends ChangeNotifier {
     }
   }
 
-  // ----------------- Guardar voto -----------------
-  Future<void> guardarVoto({
+   Future<void> guardarVoto({
     required String genero,
     required String entidadUser,
     required String entidadCandidatoParam,

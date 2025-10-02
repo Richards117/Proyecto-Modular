@@ -39,8 +39,7 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            // SliverAppBar con carrusel colapsable
-            SliverAppBar(
+             SliverAppBar(
               pinned: true,
               expandedHeight: 250,
               backgroundColor: Colors.blue.shade50,
@@ -63,7 +62,7 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
               centerTitle: true,
             ),
 
-            // Campo de búsqueda
+            // Campo de busqueda
             SliverToBoxAdapter(
               child: Padding(
                 padding:
@@ -103,7 +102,7 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
               ),
             ),
 
-            // Título Noticias Relevantes
+            // Titulo Noticias 
             const SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -115,8 +114,7 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
               ),
             ),
 
-            // Lista de noticias
-            if (state.isLoading)
+             if (state.isLoading)
               const SliverFillRemaining(
                 child: Center(child: CircularProgressIndicator()),
               )
@@ -146,7 +144,7 @@ class _NewsScreenState extends ConsumerState<NewsScreen> {
   }
 }
 
-// ------------------ Tarjeta de noticia ------------------
+// Tarjeta de noticia 
 class _Noticia extends StatefulWidget {
   final ArticleEntity article;
   final int index;
@@ -266,7 +264,7 @@ class _NoticiaState extends State<_Noticia> {
   }
 }
 
-// ------------------ Imagen de noticia ------------------
+//  Imagen de noticia 
 class _TarjetaImagen extends StatelessWidget {
   final String? imageUrl;
   const _TarjetaImagen({required this.imageUrl});

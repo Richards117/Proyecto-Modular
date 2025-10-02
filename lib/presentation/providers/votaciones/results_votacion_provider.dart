@@ -1,8 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Servicio que consulta la base de datos Supabase con manejo de errores
-class SupabaseService {
+ class SupabaseService {
   Future<List<Map<String, dynamic>>> fetchResultados() async {
     try {
       final response =
@@ -15,15 +14,13 @@ class SupabaseService {
   }
 }
 
-/// Provider base que obtiene los resultados desde Supabase
-final resultadosProvider =
+ final resultadosProvider =
     FutureProvider<List<Map<String, dynamic>>>((ref) async {
   final service = SupabaseService();
   return await service.fetchResultados();
 });
 
-/// Función que agrupa los resultados por 'cargo'
-Map<String, List<Map<String, dynamic>>> agruparPorCargo(
+ Map<String, List<Map<String, dynamic>>> agruparPorCargo(
     List<Map<String, dynamic>> resultados) {
   final Map<String, List<Map<String, dynamic>>> agrupado = {};
   for (final voto in resultados) {
@@ -33,28 +30,24 @@ Map<String, List<Map<String, dynamic>>> agruparPorCargo(
   return agrupado;
 }
 
-/// Provider que agrupa los resultados por 'cargo' usando la función modular
-final resultadosAgrupadosProvider =
+ final resultadosAgrupadosProvider =
     Provider<AsyncValue<Map<String, List<Map<String, dynamic>>>>>((ref) {
   final resultadosAsync = ref.watch(resultadosProvider);
 
   return resultadosAsync.whenData(agruparPorCargo);
 });
 
-/// Enum para definir el orden de resultados
-enum OrdenResultados {
+ enum OrdenResultados {
   masVotados,
   menosVotados,
   alfabeticoCandidato,
 }
 
-/// Provider para estado de orden global (opcional)
-final ordenResultadosProvider = StateProvider<OrdenResultados>((ref) {
+ final ordenResultadosProvider = StateProvider<OrdenResultados>((ref) {
   return OrdenResultados.masVotados;
 });
 
-/// Función para ordenar votos según el criterio seleccionado
-List<Map<String, dynamic>> ordenarVotos(
+ List<Map<String, dynamic>> ordenarVotos(
   List<Map<String, dynamic>> votos,
   OrdenResultados orden,
 ) {

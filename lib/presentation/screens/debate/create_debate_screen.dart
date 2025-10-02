@@ -162,7 +162,7 @@ class _CreateDebateScreenState extends ConsumerState<CreateDebateScreen> {
     String? imageUrl;
     if (_selectedImageFile != null) {
       imageUrl = await _uploadImage(_selectedImageFile!);
-      if (imageUrl == null) return; // Error al subir imagen
+      if (imageUrl == null) return; 
       setState(() => _uploadedImageUrl = imageUrl);
     }
 

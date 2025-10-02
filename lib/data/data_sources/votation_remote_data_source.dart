@@ -6,8 +6,7 @@ class VotacionRemoteDataSource {
 
   VotacionRemoteDataSource(this.supabase);
 
-  /// Obtiene todos los candidatos junto con sus datos relacionados
-  Future<List<CandidatoModel>> getCandidatos() async {
+   Future<List<CandidatoModel>> getCandidatos() async {
     try {
       final List<dynamic> response =
           await supabase.from('candidatos').select('''
@@ -27,8 +26,7 @@ class VotacionRemoteDataSource {
     }
   }
 
-  /// Obtiene candidatos filtrando por tipo de elección (Federal, Local, Estudiantil)
-  Future<List<CandidatoModel>> getCandidatosPorTipo(String tipo) async {
+   Future<List<CandidatoModel>> getCandidatosPorTipo(String tipo) async {
     try {
       final List<dynamic> response =
           await supabase.from('candidatos').select('''
@@ -48,8 +46,7 @@ class VotacionRemoteDataSource {
     }
   }
 
-  /// Obtiene el id de la tabla tipos_eleccion según el nombre
-  Future<int> _getTipoEleccionId(String nombre) async {
+   Future<int> _getTipoEleccionId(String nombre) async {
     final List<dynamic> result =
         await supabase.from('tipos_eleccion').select('id').eq('nombre', nombre);
 

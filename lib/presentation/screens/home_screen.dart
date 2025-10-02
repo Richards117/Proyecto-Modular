@@ -46,8 +46,7 @@ class HomeScreen extends ConsumerWidget {
                 .where((c) => c.tipoEleccion == tipoSeleccionado)
                 .toList();
 
-            // Agrupa por cargo
-            final Map<String, List<CandidatoModel>> candidatosPorCargo = {};
+             final Map<String, List<CandidatoModel>> candidatosPorCargo = {};
             for (var candidato in candidatosFiltrados) {
               candidatosPorCargo.putIfAbsent(candidato.cargo, () => []);
               candidatosPorCargo[candidato.cargo]!.add(candidato);

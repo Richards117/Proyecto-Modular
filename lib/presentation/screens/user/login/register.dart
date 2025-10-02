@@ -23,8 +23,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   void initState() {
     super.initState();
 
-    // Escucha cambios en el estado de autenticación
-    ref.listenManual<AuthState>(authNotifierProvider, (previous, next) {
+     ref.listenManual<AuthState>(authNotifierProvider, (previous, next) {
       if (next.error != null) {
         if (next.error!.contains("email-already-in-use")) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -34,8 +33,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           alertRegister(context);
         }
       } else if (!next.isAuthenticated && previous?.loading == true) {
-        // Registro exitoso pero falta verificar correo
-        alertRegistroExitoso(
+         alertRegistroExitoso(
           context,
           mensaje: "Te hemos enviado un correo de verificación. "
               "Por favor revisa tu bandeja y confirma tu cuenta.",
@@ -44,8 +42,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           },
         );
       } else if (next.isAuthenticated) {
-        // Caso raro: si la confirmación de email está desactivada
-        Navigator.pushReplacementNamed(context, '/welcome');
+         Navigator.pushReplacementNamed(context, '/welcome');
       }
     });
   }

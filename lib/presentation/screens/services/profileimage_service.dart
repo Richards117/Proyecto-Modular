@@ -17,21 +17,17 @@ class ProfileImageService {
         return null;
       }
 
-      // 🔍 Ver metadata actual
-      print('User metadata: ${currentUser.userMetadata}');
+       print('User metadata: ${currentUser.userMetadata}');
 
-      // 🔄 Eliminar imagen anterior si existe
-      final oldPath = currentUser.userMetadata?['avatar_path'] as String?;
+       final oldPath = currentUser.userMetadata?['avatar_path'] as String?;
       if (oldPath != null && oldPath.isNotEmpty) {
         print('Avatar path guardado en metadata: $oldPath');
 
-        // (Opcional) lista todos los archivos en el bucket
-        final listResult = await storageRef.list();
+         final listResult = await storageRef.list();
         final existingFiles = listResult.map((f) => f.name).toList();
         print('Archivos en el bucket: $existingFiles');
 
-        // Eliminar si existe
-        if (existingFiles.contains(oldPath)) {
+         if (existingFiles.contains(oldPath)) {
           final deleteResult = await storageRef.remove([oldPath]);
           print('Delete result: $deleteResult');
         } else {
@@ -39,13 +35,11 @@ class ProfileImageService {
         }
       }
 
-      // 🚀 Subir nueva imagen
-      await storageRef.uploadBinary(fileName, bytes);
+       await storageRef.uploadBinary(fileName, bytes);
       final publicUrl = storageRef.getPublicUrl(fileName);
       print('New image uploaded: $fileName -> $publicUrl');
 
-      // 🧠 Actualizar metadata del usuario
-      await _supabase.auth.updateUser(
+       await _supabase.auth.updateUser(
         UserAttributes(data: {
           'avatar_url': publicUrl,
           'avatar_path': fileName,

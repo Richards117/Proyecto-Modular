@@ -15,20 +15,17 @@ final votacionNotifierProvider =
 class SupabaseService {
   final supabase = Supabase.instance.client;
 
-  //lista entidades
-  Future<List<String>> fetchEntidades() async {
+   Future<List<String>> fetchEntidades() async {
     final data = await supabase.from('Votacion').select('ENTIDAD');
     return data.map((e) => e['ENTIDAD'] as String).toSet().toList();
   }
 
-  //lista cargos
-  Future<List<String>> fetchCargos() async {
+   Future<List<String>> fetchCargos() async {
     final data = await supabase.from('Votacion').select('CARGO');
     return data.map((e) => e['CARGO'] as String).toSet().toList();
   }
 
-  //partidos con candidatos válidos para un cargo y entidad
-  Future<List<String>> fetchPartidosFiltrados({
+   Future<List<String>> fetchPartidosFiltrados({
     required String entidad,
     required String cargo,
   }) async {
@@ -48,8 +45,7 @@ class SupabaseService {
     return partidosValidos;
   }
 
-  //obtiene candidatos filtrados por entidad  partido y cargo
-  Future<List<String>> fetchCandidatos({
+   Future<List<String>> fetchCandidatos({
     required String entidad,
     required String partido,
     required String cargo,
@@ -67,8 +63,7 @@ class SupabaseService {
         .toList();
   }
 
-  //ve si el usuario ya voto
-  Future<bool> usuarioYaVotoPorCargo(String userId, String cargo) async {
+   Future<bool> usuarioYaVotoPorCargo(String userId, String cargo) async {
     final data = await supabase
         .from('votos')
         .select()
@@ -78,8 +73,7 @@ class SupabaseService {
     return data.isNotEmpty;
   }
 
-  //Guarda el voto
-  Future<void> guardarVoto({
+   Future<void> guardarVoto({
     required String userId,
     required String genero,
     required String entidadUser,
@@ -120,18 +114,16 @@ class SupabaseService {
     });
   }
 
-  // Filtra las entidades que tienen candidatos para un cargo específico
-  Future<List<String>> fetchEntidadesConCandidatos(String cargo) async {
+   Future<List<String>> fetchEntidadesConCandidatos(String cargo) async {
     final data = await supabase
         .from('Votacion')
         .select('ENTIDAD, NOMBRE_CANDIDATO')
         .eq('CARGO', cargo)
-        .neq('NOMBRE_CANDIDATO', ''); // solo filas con candidatos
+        .neq('NOMBRE_CANDIDATO', '');  
 
-    // Extraemos solo las entidades y eliminamos duplicados usando Set
-    final entidadesUnicas = data
+     final entidadesUnicas = data
         .map((e) => e['ENTIDAD'] as String)
-        .toSet() // elimina duplicados
+        .toSet()  
         .toList();
 
     return entidadesUnicas;

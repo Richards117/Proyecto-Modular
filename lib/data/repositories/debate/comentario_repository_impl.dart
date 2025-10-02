@@ -38,8 +38,7 @@ class ComentarioRepositoryImpl implements ComentarioRepository {
     return remoteDataSource.editarComentario(id, nuevoContenido);
   }
 
-  /// 🔥 Implementación Realtime
-  @override
+   @override
   Stream<Comentario> subscribeToComentarios(String debateId) {
     return remoteDataSource.subscribeToComentarios(debateId).map((raw) {
       final model = ComentarioModel.fromJson(raw);

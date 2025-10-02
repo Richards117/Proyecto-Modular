@@ -5,8 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 const String tablaEntidades = 'Entidades';
 const String tablaCandidatos = 'candidatos';
 
-// Modelo de entidad
-class EntidadModel {
+ class EntidadModel {
   final int id;
   final String nombre;
   final LatLng coords;
@@ -26,8 +25,7 @@ class EntidadModel {
   }
 }
 
-// Obtener todas las entidades con coordenadas
-Future<List<EntidadModel>> obtenerEntidadesConCoords() async {
+ Future<List<EntidadModel>> obtenerEntidadesConCoords() async {
   try {
     final response =
         await Supabase.instance.client.from(tablaEntidades).select('*');
@@ -41,8 +39,7 @@ Future<List<EntidadModel>> obtenerEntidadesConCoords() async {
   }
 }
 
-// Obtener candidatos filtrando por nombre de entidad (string)
-Future<List<CandidatoModel>> obtenerCandidatosPorEntidad(
+ Future<List<CandidatoModel>> obtenerCandidatosPorEntidad(
     String nombreEntidad, String tipoEleccion) async {
   try {
     final nombre = nombreEntidad.trim();
@@ -59,8 +56,7 @@ Future<List<CandidatoModel>> obtenerCandidatosPorEntidad(
         ''').ilike('entidad', nombre);
 
     if (response.isNotEmpty) {
-      // Filtrar por tipo de elección
-      final candidatos =
+       final candidatos =
           response.map((json) => CandidatoModel.fromMap(json)).toList();
       return candidatos.where((c) => c.tipoEleccion == tipoEleccion).toList();
     }

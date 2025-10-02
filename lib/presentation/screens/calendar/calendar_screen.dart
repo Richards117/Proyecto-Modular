@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
-/// Pantalla que muestra un calendario interactivo con eventos
-/// Utiliza `table_calendar` para la visualización del calendario.
+ 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
 
@@ -13,14 +12,12 @@ class CalendarScreen extends StatefulWidget {
 
 class _CalendarScreenState extends State<CalendarScreen>
     with TickerProviderStateMixin {
-  /// Formato actual del calendario
+  
   CalendarFormat _calendarFormat = CalendarFormat.month;
 
-  /// Dia actualmente enfocado en el calendario.
-  DateTime _focusedDay = DateTime.now();
+   DateTime _focusedDay = DateTime.now();
 
-  /// Dia actualmente seleccionado por el usuario
-  DateTime? _selectedDay;
+   DateTime? _selectedDay;
 
   final Map<DateTime, List<String>> _eventos = {
     DateTime.utc(2025, 10, 10): ['Reunión con equipo'],
@@ -28,18 +25,14 @@ class _CalendarScreenState extends State<CalendarScreen>
     DateTime.utc(2025, 10, 20): ['Conferencias oficiales'],
   };
 
-  /// Inicializa el estado del widget.
-  /// Establece el día seleccionado como el día enfocado al inicio.
+ 
   @override
   void initState() {
     super.initState();
     _selectedDay = _focusedDay;
   }
 
-  /// Obtiene la lista de eventos para un día específico.
-  ///
-  /// [dia] Día para el cual se consultan los eventos.
-  /// Retorna una lista de strings con los eventos correspondientes.
+   
   List<String> _obtenerEventos(DateTime dia) {
     final key = DateTime.utc(dia.year, dia.month, dia.day);
     return _eventos[key] ?? [];
@@ -47,8 +40,7 @@ class _CalendarScreenState extends State<CalendarScreen>
 
   @override
   Widget build(BuildContext context) {
-    // Lista de eventos del día actualmente seleccionado.
-    final eventosHoy =
+     final eventosHoy =
         _selectedDay != null ? _obtenerEventos(_selectedDay!) : [];
 
     return Scaffold(
@@ -70,8 +62,7 @@ class _CalendarScreenState extends State<CalendarScreen>
       ),
       body: Column(
         children: [
-          /// Calendario principal con personalización visual
-          TableCalendar(
+           TableCalendar(
             locale: 'es',
             firstDay: DateTime.now().subtract(const Duration(days: 1000)),
             lastDay: DateTime.now().add(const Duration(days: 1000)),
@@ -150,8 +141,7 @@ class _CalendarScreenState extends State<CalendarScreen>
           ),
           const SizedBox(height: 20),
 
-          /// Muestra los eventos del día seleccionado o un mensaje si no hay eventos.
-          Expanded(
+           Expanded(
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
               child: eventosHoy.isEmpty

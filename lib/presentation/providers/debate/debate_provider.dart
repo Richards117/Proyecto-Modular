@@ -3,8 +3,7 @@ import 'package:flutter_application_votacion/domian/entities/debate.dart';
 import 'package:flutter_application_votacion/domian/repositories/debate_repositorie.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-//Provider Debate
-final debateProvider =
+ final debateProvider =
     StateNotifierProvider<DebateNotifier, AsyncValue<List<Debate>>>(
   (ref) {
     final repository = ref.watch(debateRepositoryProvider);
@@ -40,7 +39,7 @@ class DebateNotifier extends StateNotifier<AsyncValue<List<Debate>>> {
     required TextEditingController autorController,
     required TextEditingController descripcionController,
     String? imageUrl,
-    String? categoria, // 👈 nuevo
+    String? categoria,  
   }) async {
     final formState = formKey.currentState;
     if (formState == null || !formState.validate()) return;
@@ -57,7 +56,7 @@ class DebateNotifier extends StateNotifier<AsyncValue<List<Debate>>> {
         description: descripcion,
         createdAt: DateTime.now(),
         imageUrl: imageUrl,
-        categoria: categoria, // 👈 nuevo
+        categoria: categoria,  
       );
 
       final newDebate = await repository.insertDebate(debate);

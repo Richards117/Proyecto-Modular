@@ -1,5 +1,4 @@
-// providers/candidate_provider.dart
-import 'package:flutter_application_votacion/presentation/providers/candidate/candidate_provider.dart';
+ import 'package:flutter_application_votacion/presentation/providers/candidate/candidate_provider.dart';
 import 'package:flutter_application_votacion/presentation/providers/tipo_eleccion_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_application_votacion/data/models/candidate_models.dart';

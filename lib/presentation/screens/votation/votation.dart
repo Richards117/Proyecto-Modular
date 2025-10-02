@@ -103,8 +103,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // Banner de recomendación
-            Container(
+             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               margin: const EdgeInsets.only(bottom: 12),
@@ -123,8 +122,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
               ),
             ),
 
-            // Dropdown de Cargo
-            DropdownCustom(
+             DropdownCustom(
               title: 'Cargo *',
               value: state.selectedCargo,
               options: state.cargos,
@@ -133,8 +131,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
               },
             ),
 
-            // Indicador visual si ya votó
-            if (state.yaVotoPorCargo)
+             if (state.yaVotoPorCargo)
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(vertical: 8),
@@ -160,8 +157,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
                 ),
               ),
 
-            // Dropdown de Entidad Candidato (solo si no es Presidencia)
-            if (state.selectedCargo != null &&
+             if (state.selectedCargo != null &&
                 state.selectedCargo != 'PRESIDENCIA DE LA REPÚBLICA')
               DropdownCustom(
                 title: 'Entidad Candidato',
@@ -172,8 +168,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
                 },
               ),
 
-            // Dropdown de Partido (solo si hay partidos filtrados)
-            if (state.partidosFiltrados.isNotEmpty)
+             if (state.partidosFiltrados.isNotEmpty)
               DropdownCustom(
                 title: 'Partido',
                 value: state.selectedPartido,
@@ -183,8 +178,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
                 },
               ),
 
-            // Dropdown de Candidato (solo si hay candidatos filtrados)
-            if (state.candidatosFiltrados.isNotEmpty)
+             if (state.candidatosFiltrados.isNotEmpty)
               DropdownCustom(
                 title: 'Candidato',
                 value: state.selectedCandidato,
@@ -194,8 +188,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
 
             const SizedBox(height: 24),
 
-            // Botón Confirmar voto
-            ElevatedButton.icon(
+             ElevatedButton.icon(
               icon: _isSaving
                   ? const SizedBox(
                       width: 20,
@@ -218,8 +211,7 @@ class _VotacionScreenState extends ConsumerState<VotacionScreen> {
 
             const SizedBox(height: 12),
 
-            // Botón Ver Resultados
-            ElevatedButton.icon(
+             ElevatedButton.icon(
               icon: const Icon(Icons.bar_chart),
               label: const Text('Ver Resultados de Votación'),
               onPressed: () {

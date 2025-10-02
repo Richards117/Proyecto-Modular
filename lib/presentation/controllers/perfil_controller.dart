@@ -13,8 +13,7 @@ class PerfilController {
 
   PerfilController({required this.ref, required this.context});
 
-  /// Carga datos del usuario
-  Map<String, dynamic> loadUserData() {
+   Map<String, dynamic> loadUserData() {
     final user = ref.read(authRepositoryProvider).getCurrentUser();
     if (user == null) return {};
 
@@ -26,8 +25,7 @@ class PerfilController {
     };
   }
 
-  /// Cambiar foto de perfil
-  Future<String?> changeProfilePhoto() async {
+   Future<String?> changeProfilePhoto() async {
     int? option = await alertfoto(context);
     if (option == null) return null;
 

@@ -6,6 +6,5 @@ abstract class ComentarioRepository {
   Future<void> eliminarComentario(int id);
   Future<void> editarComentario(int id, String nuevoContenido);
 
-  /// 🔥 Nuevo método para suscripción Realtime
-  Stream<Comentario> subscribeToComentarios(String debateId);
+   Stream<Comentario> subscribeToComentarios(String debateId);
 }

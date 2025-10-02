@@ -205,9 +205,9 @@ class CandidatoListScreen extends ConsumerWidget {
           ),
           child: const Text(
             "Sigue estos pasos:\n\n"
-            "1️⃣ 🖐️ Selecciona al menos 2 candidatos de diferente Partido tocando el cuadro en la parte derecha de sus tarjetas.\n\n"
-            "2️⃣ 🔎 Después de seleccionar los candidatos aparecerá el botón de comparar.\n\n"
-            "3️⃣ Presiona el botón para ver sus propuestas y comparar fácilmente.",
+            "  Selecciona al menos 2 candidatos de diferente Partido tocando el cuadro en la parte derecha de sus tarjetas.\n\n"
+            "  Después de seleccionar los candidatos aparecerá el botón de comparar.\n\n"
+            " Presiona el botón para ver sus propuestas y comparar fácilmente.",
             style: TextStyle(fontSize: 17, color: Colors.black87, height: 1.4),
             textAlign: TextAlign.left,
           ),
