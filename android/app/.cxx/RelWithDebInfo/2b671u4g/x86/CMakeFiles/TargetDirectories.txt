@@ -1,0 +1,2 @@
+/home/ricardo/Escritorio/Proyectos Flutter/Flutter App votaciones/flutter_application_votacion/android/app/.cxx/RelWithDebInfo/2b671u4g/x86/CMakeFiles/edit_cache.dir
+/home/ricardo/Escritorio/Proyectos Flutter/Flutter App votaciones/flutter_application_votacion/android/app/.cxx/RelWithDebInfo/2b671u4g/x86/CMakeFiles/rebuild_cache.dir

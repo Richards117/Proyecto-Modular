@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/ricardo/snap/flutter/common/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/snap/flutter/current/usr/bin/ninja",
+      "-C",
+      "/home/ricardo/Escritorio/Proyectos Flutter/Flutter App votaciones/flutter_application_votacion/android/app/.cxx/RelWithDebInfo/2b671u4g/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/snap/flutter/current/usr/bin/ninja",
+    "-C",
+    "/home/ricardo/Escritorio/Proyectos Flutter/Flutter App votaciones/flutter_application_votacion/android/app/.cxx/RelWithDebInfo/2b671u4g/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

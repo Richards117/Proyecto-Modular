@@ -1,0 +1,16 @@
+export 'package:flutter_application_votacion/presentation/screens/user/profile/full_image.dart';
+export 'package:flutter_application_votacion/presentation/screens/user/profile/edit_profile.dart';
+export 'package:flutter_application_votacion/presentation/screens/debate/debate_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/user/profile/profile_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/search/canidate_filtter.dart';
+export 'package:flutter_application_votacion/presentation/screens/news/news.dart';
+export 'package:flutter_application_votacion/presentation/screens/maps/maps_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/information/questions_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/information/about_us_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/candidate/comparative_candidate.dart';
+export 'package:flutter_application_votacion/presentation/screens/debate/create_debate_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/debate/coments_debate.dart';
+export 'package:flutter_application_votacion/presentation/screens/candidate/candidate_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/candidate/candidate_list_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/calendar/calendar_screen.dart';
+export 'package:flutter_application_votacion/presentation/screens/home_screen.dart';

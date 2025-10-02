@@ -1,0 +1,1 @@
+/home/ricardo/Escritorio/Proyectos Flutter/Flutter App votaciones/flutter_application_votacion/build/app/intermediates/cxx/RelWithDebInfo/2b671u4g/obj/x86
